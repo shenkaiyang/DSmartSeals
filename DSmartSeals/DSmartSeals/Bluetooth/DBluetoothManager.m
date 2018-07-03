@@ -119,6 +119,7 @@
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *, id> *)advertisementData RSSI:(NSNumber *)RSSI {
     // 对外设对象进行强引用
     
+    NSLog(@"%@\n%@\n%@",peripheral.name,advertisementData,RSSI);
     ISBLEPeripheralInfo *peripheralInfo = [[ISBLEPeripheralInfo alloc]init];
     peripheralInfo.peripheral               = peripheral;
     peripheralInfo.advertisementData        = advertisementData;
@@ -286,7 +287,7 @@ static NSInteger count;
         
         return;
     }
-    [self.peripheralInfo.peripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];
+    [self.peripheralInfo.peripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithoutResponse];
 }
 
 

@@ -11,12 +11,12 @@
 #import "ISDataUtils.h"
 #import "SVProgressHUD.h"
 #import "DUSealViewController.h"
-#define SERVICE_UUID @"FFE0"
-//6E400001-B5A3-F393-E0A9-E50E24DCCA9E"
-#define CHARACTERISTICNotify_UUID @"FFE2"
-//@"6E400003-B5A3-F393-E0A9-E50E24DCCA9E"
-#define CHARACTERISTICWrite_UUID @"FFE1"
-//@"6E400002-B5A3-F393-E0A9-E50E24DCCA9E"
+#define SERVICE_UUID @"6E400001-B5A3-F393-E0A9-E50E24DCCA9E"
+//"
+#define CHARACTERISTICNotify_UUID @"6E400003-B5A3-F393-E0A9-E50E24DCCA9E"
+//@""
+#define CHARACTERISTICWrite_UUID @"6E400002-B5A3-F393-E0A9-E50E24DCCA9E"
+//@""
 
 @interface ScanViewController ()<DBluetoothManagerDelegate>
 @property (nonatomic, readwrite, copy  ) NSString       *sealMacString;
@@ -60,9 +60,8 @@
     //...
     self.sealMacString = strResult;
     [DBluetoothManager shareInstance].delegate = self;
-//    [DBluetoothManager shareInstance].characteristicsIDArray = @[[CBUUID UUIDWithString:CHARACTERISTICWrite_UUID],[CBUUID UUIDWithString:CHARACTERISTICNotify_UUID]];;
-    [[DBluetoothManager shareInstance] startScanPeripherals:@[]];
-//    [CBUUID UUIDWithString:SERVICE_UUID]
+    [DBluetoothManager shareInstance].characteristicsIDArray = @[[CBUUID UUIDWithString:CHARACTERISTICWrite_UUID]];;
+    [[DBluetoothManager shareInstance] startScanPeripherals:@[[CBUUID UUIDWithString:SERVICE_UUID]]];
     
    
 }
@@ -86,9 +85,11 @@
         ISBLEPeripheralInfo *willConnectPeripheral;
         for (ISBLEPeripheralInfo *bleInfo in peripherals) {
             NSData *macData = bleInfo.advertisementData[@"kCBAdvDataManufacturerData"];
-            
             NSString *macString = [ISDataUtils convertToNSStringWithNSData:macData];
             macString = [macString stringByReplacingOccurrencesOfString:@" " withString:@""];
+//            NSString *macString = bleInfo.advertisementData[@"kCBAdvDataLocalName"];
+//            self.sealMacString =  @"MS1793-UART";
+//            NSLog(@"----%@---Mac地址---------%@----扫描的Mac地址---%@",bleInfo.peripheral.name,macString,self.sealMacString);
             if ([macString.lowercaseString hasSuffix:self.sealMacString.lowercaseString]) {
                 willConnectPeripheral = bleInfo;
                 break;

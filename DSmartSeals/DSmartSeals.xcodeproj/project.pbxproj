@@ -652,9 +652,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8R4CG5XT74;
-				GCC_PREFIX_HEADER = /Users/shenkaiyang/Documents/DSmartSeals/DSmartSeals/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/shenkaiyang/Documents/DSmartSealsInfo/DSmartSeals/DSmartSeals/PrefixHeader.pch;
 				INFOPLIST_FILE = DSmartSeals/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.icourt.samreSeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -669,9 +669,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8R4CG5XT74;
-				GCC_PREFIX_HEADER = /Users/shenkaiyang/Documents/DSmartSeals/DSmartSeals/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/shenkaiyang/Documents/DSmartSealsInfo/DSmartSeals/DSmartSeals/PrefixHeader.pch;
 				INFOPLIST_FILE = DSmartSeals/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.icourt.samreSeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
